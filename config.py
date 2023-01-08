@@ -1,4 +1,3 @@
-import os
 import subprocess
 
 from libqtile import bar, widget, hook
@@ -8,6 +7,7 @@ from libqtile.layout import floating
 # local imports
 from userconfigs.keybinds import Keybinds
 from userconfigs.layouts import Layouts
+from userconfigs.userVariables import UserVars
 
 keybinds = Keybinds()
 screen = Layouts()
@@ -77,7 +77,6 @@ wl_input_rules = None
 wmname = "LG3D"
 
 
-@hook.subscribe.client_new
+@hook.subscribe.startup_once
 def start_once():
-    home = os.path.expanduser("~")
-    subprocess.call([f"{home}/.config/qtile/autostart"])
+    subprocess.call([f"{UserVars.home}/.config/qtile/autostart"])

@@ -21,7 +21,6 @@ My `config.py` is pretty much the default QTile's config, but I tried to put my 
 ### Basic Python and libqtile libs
 
 ``` python
-import os
 import subprocess
 
 from libqtile import bar, widget, hook
@@ -31,13 +30,14 @@ from libqtile.layout import floating
 ```
 
 
-### `userconfigs` libraries
+### `userconfigs` module
 
 The `userconfigs` local module will store the custom configuration to run QTile
 ``` python
 # local imports
 from userconfigs.keybinds import Keybinds
 from userconfigs.layouts import Layouts
+from userconfigs.userVariables import UserVars
 
 keybinds = Keybinds()
 screen = Layouts()
@@ -134,9 +134,8 @@ wmname = "LG3D"
 
 All apps that should start once (at startup), should be defined in the `autostart` script 
 ``` python
-@hook.subscribe.client_new
+@hook.subscribe.startup_once
 def start_once():
-    home = os.path.expanduser("~")
-    subprocess.call([f"{home}/.config/qtile/autostart"])
+    subprocess.call([f"{UserVars.home}/.config/qtile/autostart"])
 
 ```
