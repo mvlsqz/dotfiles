@@ -1,26 +1,3 @@
-# My QTile Config
-
-The python config for my daily driver WM
-
-
-## Why a WM
-
-I feel very confortable being a keyboard user, and a WM provides that functionality out of the box
-
-
-## Why QTile
-
-Well basically I'm in the path of learn python, so use QTile to play with python code seems to me a good excuse
-
-
-# My Configuration
-
-My `config.py` is pretty much the default QTile's config, but I tried to put my custom stuffs in a modular approach
-
-
-### Basic Python and libqtile libs
-
-``` python
 import os
 import subprocess
 
@@ -28,13 +5,6 @@ from libqtile import bar, widget, hook
 from libqtile.config import Group, Match, Screen
 from libqtile.layout import floating
 
-```
-
-
-### `userconfigs` libraries
-
-The `userconfigs` local module will store the custom configuration to run QTile
-``` python
 # local imports
 from userconfigs.keybinds import Keybinds
 from userconfigs.layouts import Layouts
@@ -42,22 +12,8 @@ from userconfigs.layouts import Layouts
 keybinds = Keybinds()
 screen = Layouts()
 
-```
-
-
-### Main config
-
-#### Groups definition
-
-``` python
 groups = [Group(i) for i in "123456789"]
 
-```
-
-
-#### Bar and it's widgets definition
-
-``` python
 widget_defaults = dict(
   font="sans",
   fontsize=12,
@@ -94,13 +50,6 @@ screens = [
   ),
 ]
 
-```
-
-
-#### Miscellaneus configs
-
-Multiple QTile configs
-``` python
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
@@ -128,15 +77,7 @@ wl_input_rules = None
 wmname = "LG3D"
 
 
-```
-
-#### Startup Once configuration
-
-All apps that should start once (at startup), should be defined in the `autostart` script 
-``` python
 @hook.subscribe.client_new
 def start_once():
     home = os.path.expanduser("~")
     subprocess.call([f"{home}/.config/qtile/autostart"])
-
-```
