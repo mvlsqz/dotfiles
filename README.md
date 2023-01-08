@@ -44,6 +44,18 @@ screen = Layouts()
 
 ```
 
+### Keys config
+
+``` python
+keys = keybinds.load_keys()
+```
+
+
+### Layouts config
+
+``` python
+layouts = screen.init_layouts()
+```
 
 ### Main config
 

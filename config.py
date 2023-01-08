@@ -12,6 +12,8 @@ from userconfigs.userVariables import UserVars
 keybinds = Keybinds()
 screen = Layouts()
 
+keys = keybinds.load_keys()
+layouts = screen.init_layouts()
 groups = [Group(i) for i in "123456789"]
 
 widget_defaults = dict(

@@ -34,7 +34,17 @@
     screen = Layouts()
 
     @end
+*** Keys config
+    #tangle config.py
+    @code python
+    keys = keybinds.load_keys()
+    @end
 
+*** Layouts config
+    #tangle config.py
+    @code python
+    layouts = screen.init_layouts()
+    @end
 *** Main config
 **** Groups definition
      #tangle config.py
